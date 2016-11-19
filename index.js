@@ -64,8 +64,8 @@ app.put('/:collection/:entity', function(req, res) {
     var collection = params.collection;
     if (entity) {
        collectionDriver.update(collection, req.body, entity, function(error, objs) {
-          if (error) { res.send(400, error); }
-          else { res.send(200, objs); }
+          if (error) { res.status(400).send(error); }
+          else { res.status(200).send(objs); }
        });
    } else {
        var error = { "message" : "Cannot PUT a whole collection" };
@@ -79,8 +79,8 @@ app.delete('/:collection/:entity', function(req, res) {
     var collection = params.collection;
     if (entity) {
        collectionDriver.delete(collection, entity, function(error, objs) {
-          if (error) { res.send(400, error); }
-          else { res.send(200, objs); }
+          if (error) { res.status(400).send(error); }
+          else { res.status(200).send(objs); }
        });
    } else {
        var error = { "message" : "Cannot DELETE a whole collection" };
