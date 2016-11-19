@@ -13,7 +13,7 @@ app.set('view engine', 'jade');
  
 var collectionDriver;
  
-var url = 'mongodb://localhost:27017/mongo-server';
+var url = 'mongodb://localhost:27017/mydb';
 MongoClient.connect(url, function(error, db) {
 	if (error) {
 		console.error("Unable to connect to MongoDB. Please make sure mongod is running on %s.", url);
@@ -44,12 +44,26 @@ app.get('/:collection', function(req, res) {
    	});
 });
 
-app.get('/:collection/:entity', function(req, res) {
+app.get('/id/:collection/:entity', function(req, res) {
    var params = req.params;
    var entity = params.entity;
    var collection = params.collection;
    if (entity) {
        collectionDriver.get(collection, entity, function(error, objs) {
+          if (error) { res.status(400).send(error); }
+          else { res.status(200).send(objs); }
+       });
+   } else {
+      res.status(400).send({error: 'bad url', url: req.url});
+   }
+});
+
+app.get('/email/:collection/:entity', function(req, res) {
+   var params = req.params;
+   var entity = params.entity;
+   var collection = params.collection;
+   if (entity) {
+       collectionDriver.getByEmail(collection, entity, function(error, objs) {
           if (error) { res.status(400).send(error); }
           else { res.status(200).send(objs); }
        });
