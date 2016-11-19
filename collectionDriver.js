@@ -39,7 +39,7 @@ CollectionDriver.prototype.get = function(collectionName, id, callback) {
 
 CollectionDriver.prototype.save = function(collectionName, obj, callback) {
     this.getCollection(collectionName, function(error, the_collection) {
-      if( error ) callback(error)
+      if (error) callback(error)
       else {
         obj.created_at = new Date();
         the_collection.insert(obj, function() {
