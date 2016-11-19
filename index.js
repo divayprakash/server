@@ -2,9 +2,9 @@ var http = require('http'),
     express = require('express'),
     path = require('path'),
     MongoClient = require('mongodb').MongoClient,
-	Server = require('mongodb').Server,
-	CollectionDriver = require('./collectionDriver').CollectionDriver,
-	bodyParser = require('body-parser');
+    Server = require('mongodb').Server,
+    CollectionDriver = require('./collectionDriver').CollectionDriver,
+    bodyParser = require('body-parser');
  
 var app = express();
 app.set('port', process.env.PORT || 3000); 
@@ -35,7 +35,7 @@ app.get('/:collection', function(req, res) {
     	  if (error) { res.status(400).send(error); }
 	      else { 
 	          if (req.accepts('html')) {
-    	          res.render('data',{objects: objs, collection: req.params.collection}); //F
+    	          res.render('data',{objects: objs, collection: req.params.collection});
               } else {
 	          res.set('Content-Type','application/json');
                   res.status(200).send(objs);
