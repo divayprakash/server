@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/divayprakash/server.git"
+  },
+  "author": "Divay Prakash <divayprakash3@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/divayprakash/server/issues"
+  },
+  "homepage": "https://github.com/divayprakash/server#readme"
+}
