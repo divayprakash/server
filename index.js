@@ -13,7 +13,7 @@ app.set('view engine', 'jade');
  
 var collectionDriver;
  
-var url = 'mongodb://localhost:27017/mongo-server';
+var url = 'mongodb://localhost:27017/mydb';
 MongoClient.connect(url, function(error, db) {
 	if (error) {
 		console.error("Unable to connect to MongoDB. Please make sure mongod is running on %s.", url);
