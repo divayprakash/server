@@ -64,10 +64,10 @@ CollectionDriver.prototype.update = function(collectionName, obj, entityId, call
 };
 
 CollectionDriver.prototype.delete = function(collectionName, entityId, callback) {
-    this.getCollection(collectionName, function(error, the_collection) { //A
+    this.getCollection(collectionName, function(error, the_collection) {
         if (error) callback(error);
         else {
-            the_collection.remove({'_id':ObjectID(entityId)}, function(error,doc) { //B
+            the_collection.remove({'_id':ObjectID(entityId)}, function(error,doc) {
                 if (error) callback(error);
                 else callback(null, doc);
             });
