@@ -10,7 +10,11 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
  
 app.get('/', function (req, res) {
-  res.send('<html><body><h1>Hello World</h1></body></html>');
+  res.send('<html><body>Hello World</body></html>');
+});
+
+app.get('/:a?/:b?/:c?', function (req,res) {
+	res.send(req.params.a + ' ' + req.params.b + ' ' + req.params.c);
 });
  
 app.use(function (req,res) {
